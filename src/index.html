@@ -3,21 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hello World!</title>
-    <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
   </head>
   <body>
-    <button id="min">
-      <i class="fa-thin fa-window-minimize"></i>
-    </button>
-    <button id="max">
-      <i class="fa-thin fa-window-maximize"></i> 
-    </button>
-    <button id="close">
-      <i class="fa-thin fa-window-close"></i> 
-    </button>
-
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
+    <div class="container">
+      <div class="title-bar">
+        <div class="title prevent-select draggable">Custom Title Bar</div>
+        <div class="control prevent-select">
+          <button id="min">
+            <i class="fa-thin fa-window-minimize"></i>
+          </button>
+          <button id="max">
+            <i class="fa-thin fa-window-maximize"></i>
+          </button>
+          <button id="close">
+            <i class="fa-thin fa-window-close"></i>
+          </button>
   </body>
 </html>
