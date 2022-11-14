@@ -43,7 +43,7 @@ body *{
 
 .title-bar{
   background: #000000;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'NEXON Lv2 Gothic';
   color: #ffffff;
   font-size: 10px;
 }
@@ -55,5 +55,19 @@ body *{
 }
 
 .draggable{
+  -webkit-app-region: drag;
+}
+
+.dragbar{
+  width: calc(100vw - 10px);
+  height: 32px;
+  color: white;
+  text-align: center;
+  line-height: 28px;
+  user-select: none;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  z-index: 9998;
   -webkit-app-region: drag;
 }

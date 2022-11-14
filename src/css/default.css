@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+/*default.css*/
+
+/*font*/
+
+@font-face {
+    font-family: "NEXON Lv2 Gothic";
+    src: url("../font/NEXON\ Lv2\ Gothic.ttf");
+}
