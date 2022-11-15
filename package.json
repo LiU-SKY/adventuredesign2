@@ -18,7 +18,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "cheerio": "^1.0.0-rc.12",
+    "electron-squirrel-startup": "^1.0.0",
+    "puppeteer": "^19.2.2"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.1",
