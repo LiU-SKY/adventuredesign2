@@ -33,43 +33,48 @@
         <ul>
     
           <li>
-            <a href="#">
+            <a href="#" onclick='importPage("main-text")'>
               <i class="fa fa-home fa-lg"></i>
               <span class="nav-text">MAIN</span>
             </a>
           </li>
+
           <li>
-            <a>
+            <a href="#" onclick='importPage("list")'>
             <i class="fa fa-list fa-lg"></i>
             <span class="nav-text">LIST</span></a>
           </li>
+
           <li>
-            <a >
+            <a href="#" onclick='importPage("class-Management")'>
               <i class="fa fa-chalkboard-user fa-lg"></i>
               <span class="nav-text">Class Management</span>
             </a>
           </li>
+
           <li>
-            <a >
+            <a href="#" onclick='importPage("list")'>
               <i class="fa fa-bullhorn fa-lg"></i>
               <span class="nav-text">Class Notice</span>
             </a>
           </li>
+
           <li>
-            <a >
+            <a href="#" onclick='importPage("list")'>
               <i class="fa fa-bell fa-lg"></i>
               <span class="nav-text">Alarm</span>
             </a>
           </li>
+
           <li>
-            <a >
+            <a href="#" onclick='importPage("list")'>
               <i class="fa fa-user fa-lg"></i>
               <span class="nav-text">List</span>
             </a>
           </li>
           
           <li>
-            <a >
+            <a href="#" onclick='importPage("list")'>
               <i class="fa fa-user fa-lg"></i>
               <span class="nav-text">List 2</span>
             </a>
@@ -81,10 +86,26 @@
           
         </ul></div></nav>
         
-        <section class="main-text" style="margin-left: 70px;">
-          test
+        <section class="main-text" style="margin-left: 70px; font-family: NEXON Lv2 Gothic;" id="main-text">
+          <div style="font-size: 50pt;">
+            Welcome 환영합니다
+            <!-- 여기에 로드--> 
+          </div>
         </section>
 
     <script src='./function.js'></script>
+    <script>
+      async function fetchHtmlAsText(url) {
+        return await (await fetch(url)).text();
+      }
+
+      async function importPage(target) {
+      var div =  document.getElementsByTagName('section')[0];
+      div.id = target;
+        document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
+      }
+
+    
+    </script>
   </body>
 </html>

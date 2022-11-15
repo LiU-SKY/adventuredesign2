@@ -10,20 +10,22 @@ let MealList = {
 
 async function crawl(){
   // 가상 브라우져를 실행, headless: false를 주면 벌어지는 일을 새로운 창을 열어 보여준다(default: true)
-  const browser = await puppeteer.launch({headless: false});
+  const browser = await puppeteer.launch({headless: true});
   const page = await browser.newPage();
+  
   const ndhs_id = '20211846'; // 추후 로그인 폼에서 각자의 아이디 비밀번호를 입력받게 할 예정
   const ndhs_pw = 'whgksmf02!';
 
   // headless: false일때 브라우져 크기 지정해주는 코드
-   await page.setViewport({
-       width: 1366,
-       height: 768
+  await page.setViewport({
+       //width: 1366,
+       //height: 768
    });
 
   //페이지로 가라
   await page.goto('https://edu.dju.ac.kr/');
-  
+  await page.waitFor(500);
+
   //해당 페이지에 특정 html 태그를 클릭해라
   await page.click('html > body > div[2] > div[2] > div[2] > div > form > fieldset > ul > li[1] > input');
   console.log('success1');
