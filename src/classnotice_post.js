@@ -6,12 +6,8 @@ const pw = "whgksmf02!";
 
 const crawler = async() => {
     try{
-        const browser = await puppeteer.launch({headless: false});
+        const browser = await puppeteer.launch({headless: true});
         const page = await browser.newPage();
-        await page.setViewport({
-            width:800,
-            height:600
-        })
         await page.goto('https://edu.dju.ac.kr/Main.do?cmd=viewHome');
 
         await page.evaluate(({ id,pw }) => {
@@ -44,8 +40,8 @@ const crawler = async() => {
             const lists_1 = $a(`div:nth-child(${tNum}) > dl > dt > h4 > a`).text().replaceAll("\t","").replaceAll("\n", " "); //게시글 제목
             const lists_2 = $a(`div:nth-child(${tNum}) > dl > dd.info > ul.fr`).text().replaceAll("\t","").replaceAll("\n", " "); //게시글 상세 정보
             var res_a = "";
-            for(let num=1, blank = 0; blank !=2; num++){
-                var lists_a = `#listBox > div:nth-child(${tNum}) > dl > dd:nth-child(3) > div > p:nth-child(${num})`; //게시글 내용
+            for(let num=1, blank = 0; blank !=2; num++){ //게시글 내용
+                var lists_a = `#listBox > div:nth-child(${tNum}) > dl > dd:nth-child(3) > div > p:nth-child(${num})`; 
                 lists_a = $a(lists_a).text();
                 if(blank==0 && lists_a == ""){
                     res_a += "\n";
@@ -64,15 +60,10 @@ const crawler = async() => {
         console.log(result_con);
 
 
-
-
-
-        //게시글 화면에서 로그아웃
+        //메인 화면에서 로그아웃
         await page.evaluate(() => {
         document.querySelector("#header > div.topCover > ul > li:nth-child(3) > dl > dd > a").click();
         })
-
-        // await page.close();
         
         await page.waitForNavigation();
         await browser.close();

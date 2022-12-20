@@ -6,12 +6,8 @@ const pw = "whgksmf02!";
 
 const crawler = async() => {
     try{
-        const browser = await puppeteer.launch({headless: false});
+        const browser = await puppeteer.launch({headless: true});
         const page = await browser.newPage();
-        await page.setViewport({
-            width:800,
-            height:600
-        })
         await page.goto('https://edu.dju.ac.kr/Main.do?cmd=viewHome');
 
         await page.evaluate(({ id,pw }) => {
