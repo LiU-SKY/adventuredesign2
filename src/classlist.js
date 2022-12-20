@@ -1,11 +1,12 @@
 const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
+const { systemPreferences } = require('electron');
 const id = "20211846";
 const pw = "whgksmf02!";
 
 const crawler = async() => {
     try{
-        const browser = await puppeteer.launch({headless: false, args:['--window-size=1920,1080']});
+        const browser = await puppeteer.launch({headless: false});
         const page = await browser.newPage();
         await page.setViewport({
             width:800,
@@ -48,15 +49,16 @@ const crawler = async() => {
         console.log(arrRes);
         //수업목록 불러오기 완료
 
-
-
-        //메인에서 로그아웃
+        //게시글 화면에서 로그아웃
         await page.evaluate(() => {
         document.querySelector("#loginForm > fieldset > ul.member > li:nth-child(1) > a").click();
-    })
+        })
+
         // await page.close();
+        
         await page.waitForNavigation();
         await browser.close();
+
     }catch(err){
         console.log('에러발생')
         console.log(err)
@@ -64,3 +66,5 @@ const crawler = async() => {
 }
 
 crawler();
+
+
