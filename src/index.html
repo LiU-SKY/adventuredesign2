@@ -46,7 +46,7 @@
           </li>
 
           <li>
-            <a href="#" onclick='importPage("class-Management")'>
+            <a href="#" onclick='importPage("su")'>
               <i class="fa fa-chalkboard-user fa-lg"></i>
               <span class="nav-text">Class Management</span>
             </a>
@@ -94,6 +94,8 @@
         </section>
 
     <script src='./function.js'></script>
+    <script src='./src_crawling/classlist.js'></script>
+
     <script>
       async function fetchHtmlAsText(url) {
         return await (await fetch(url)).text();
