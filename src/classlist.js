@@ -7,7 +7,7 @@ const pw = "whgksmf02!";
 async function crawler_list(){
     try{
         document.getElementById("output").innerHTML = '';
-        const browser = await puppeteer.launch({headless: true});
+        const browser = await puppeteer.launch({headless: false});
         const page = await browser.newPage();
         await page.goto('https://edu.dju.ac.kr/Main.do?cmd=viewHome');
         
