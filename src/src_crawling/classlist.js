@@ -59,7 +59,7 @@ async function crawler_list(){
             }
             result += `<br><button onclick="crawler_notice(${i+1});">공지사항 조회</button>
             <button onclick="crawler_data(${i+1});">강의자료실 조회</button>
-            <button onclick="crawler_video(${i+1});">강의 영상 조회</button><br>`
+            <button onclick="crawler_video(${i+1});">강의 영상 조회</button><br><br>`
             document.getElementById("output").innerHTML += result;
         }
         

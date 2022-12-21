@@ -33,7 +33,7 @@
         <ul>
     
           <li>
-            <a href="#" onclick='importPage("main-text")'>
+            <a href="#" onclick='importPage("index_text")'>
               <i class="fa fa-home fa-lg"></i>
               <span class="nav-text">MAIN</span>
             </a>
@@ -42,43 +42,16 @@
           <li>
             <a href="#" onclick='importPage("list")'>
             <i class="fa fa-list fa-lg"></i>
-            <span class="nav-text">LIST</span></a>
+            <span class="nav-text">DJU MAP</span></a>
           </li>
 
           <li>
-            <a href="#" onclick='importPage("su")'>
+            <a href="#" onclick='importPage("lms_crawl")'>
               <i class="fa fa-chalkboard-user fa-lg"></i>
               <span class="nav-text">Class Management</span>
             </a>
           </li>
 
-          <li>
-            <a href="#" onclick='importPage("list")'>
-              <i class="fa fa-bullhorn fa-lg"></i>
-              <span class="nav-text">Class Notice</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" onclick='importPage("list")'>
-              <i class="fa fa-bell fa-lg"></i>
-              <span class="nav-text">Alarm</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" onclick='importPage("list")'>
-              <i class="fa fa-user fa-lg"></i>
-              <span class="nav-text">List</span>
-            </a>
-          </li>
-          
-          <li>
-            <a href="#" onclick='importPage("list")'>
-              <i class="fa fa-user fa-lg"></i>
-              <span class="nav-text">List 2</span>
-            </a>
-          </li>
         
   
     
@@ -87,10 +60,19 @@
         </ul></div></nav>
         
         <section class="main-text" style="margin-left: 70px; font-family: NEXON Lv2 Gothic;" id="main-text">
-          <div style="font-size: 50pt;">
-            Welcome 환영합니다
+              <div>
+                <h1>Welcome!</h1>
+                <p>안녕하세요. {사용자} 님</p>
+                <p>
+                  <a href="https://www.dju.ac.kr/dju/main.do">대전대학교홈페이지</a>입니다.
+                  <a href="https://portal.dju.ac.kr/">대전대학교 포털</a>입니다. <br>
+                <img src="https://blog.kakaocdn.net/dn/kOork/btqyywMyPTy/YXFx4Nb6hPGORgP5NpKLZ0/img.jpg" 
+                alt="dju logo" width="400">
+                </p>
+              </div>
+            
+            
             <!-- 여기에 로드--> 
-          </div>
         </section>
 
     <script src='./function.js'></script>
@@ -109,5 +91,43 @@
 
     
     </script>
+
+<script>
+  var number;
+  function open_field() {
+      number = Number(document.all.number.value) + 1;
+
+      document.all.number.value = number;
+      intext.innerHTML = "";
+      for (i = 0; i < number; i++) {
+
+          intext.innerHTML = intext.innerHTML + "<textarea name='text'></textarea>";
+      }
+
+  }
+  function close_field() {
+      if (document.all.number.value == 0) {
+          alert("더이상 닫을 창이 없습니다.");
+      } else {
+          number = Number(document.all.number.value) - 1;
+
+          document.all.number.value = number;
+          intext.innerHTML = "";
+
+          for (i = 0; i < number; i++) {
+
+              intext.innerHTML = intext.innerHTML + "<textarea name='text'></textarea>";
+          }
+      }
+  }
+</script>
+<script>
+  function open_field() {
+      field.style.display = 'block';
+  }
+  function close_field() {
+      field.style.display = 'none';
+  }
+</script>
   </body>
 </html>
